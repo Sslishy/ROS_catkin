@@ -266,74 +266,69 @@ target_pose1.orientation.y =1;
 void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& planning_scene_interface)
 {
   std::vector<moveit_msgs::CollisionObject> collision_objects;
-  collision_objects.resize(3);
-
+  collision_objects.resize(4);
   // Add the first table where the cube will originally be kept.
   collision_objects[0].id = "table1";
-  collision_objects[0].header.frame_id = "panda_link0";
-
-  /* Define the primitive and its dimensions. */
+  collision_objects[0].header.frame_id = "base_link";
   collision_objects[0].primitives.resize(1);
   collision_objects[0].primitives[0].type = collision_objects[0].primitives[0].BOX;
   collision_objects[0].primitives[0].dimensions.resize(3);
-  collision_objects[0].primitives[0].dimensions[0] = 0.2;
-  collision_objects[0].primitives[0].dimensions[1] = 0.4;
+  collision_objects[0].primitives[0].dimensions[0] = 0.54;
+  collision_objects[0].primitives[0].dimensions[1] = 0.001;
   collision_objects[0].primitives[0].dimensions[2] = 0.4;
-
-  /* Define the pose of the table. */
   collision_objects[0].primitive_poses.resize(1);
-  collision_objects[0].primitive_poses[0].position.x = 0.5;
-  collision_objects[0].primitive_poses[0].position.y = 0;
-  collision_objects[0].primitive_poses[0].position.z = 0.2;
+  collision_objects[0].primitive_poses[0].position.x = 1.2108;
+  collision_objects[0].primitive_poses[0].position.y = 0.376140;
+  collision_objects[0].primitive_poses[0].position.z = 0.259062 + 0.2;
   collision_objects[0].primitive_poses[0].orientation.w = 1.0;
-  // END_SUB_TUTORIAL
-
   collision_objects[0].operation = collision_objects[0].ADD;
 
-  // BEGIN_SUB_TUTORIAL table2
-  // Add the second table where we will be placing the cube.
-  collision_objects[1].id = "table2";
-  collision_objects[1].header.frame_id = "panda_link0";
 
-  /* Define the primitive and its dimensions. */
+  collision_objects[1].id = "table2";
+  collision_objects[1].header.frame_id = "base_link";
   collision_objects[1].primitives.resize(1);
   collision_objects[1].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[1].primitives[0].dimensions.resize(3);
-  collision_objects[1].primitives[0].dimensions[0] = 0.4;
-  collision_objects[1].primitives[0].dimensions[1] = 0.2;
+  collision_objects[1].primitives[0].dimensions[0] = 0.001;
+  collision_objects[1].primitives[0].dimensions[1] = 0.7617;
   collision_objects[1].primitives[0].dimensions[2] = 0.4;
-
-  /* Define the pose of the table. */
   collision_objects[1].primitive_poses.resize(1);
-  collision_objects[1].primitive_poses[0].position.x = 0;
-  collision_objects[1].primitive_poses[0].position.y = 0.5;
-  collision_objects[1].primitive_poses[0].position.z = 0.2;
+  collision_objects[1].primitive_poses[0].position.x = 1.468637;
+  collision_objects[1].primitive_poses[0].position.y = -0.012678;
+  collision_objects[1].primitive_poses[0].position.z = 0.259062 + 0.2;
   collision_objects[1].primitive_poses[0].orientation.w = 1.0;
-  // END_SUB_TUTORIAL
-
   collision_objects[1].operation = collision_objects[1].ADD;
 
-  // BEGIN_SUB_TUTORIAL object
-  // Define the object that we will be manipulating
-  collision_objects[2].header.frame_id = "panda_link0";
-  collision_objects[2].id = "object";
-
-  /* Define the primitive and its dimensions. */
+  collision_objects[2].header.frame_id = "base_link";
+  collision_objects[2].id = "table3";
   collision_objects[2].primitives.resize(1);
   collision_objects[2].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[2].primitives[0].dimensions.resize(3);
-  collision_objects[2].primitives[0].dimensions[0] = 0.02;
-  collision_objects[2].primitives[0].dimensions[1] = 0.02;
-  collision_objects[2].primitives[0].dimensions[2] = 0.2;
-
-  /* Define the pose of the object. */
+  collision_objects[2].primitives[0].dimensions[0] = 0.54;
+  collision_objects[2].primitives[0].dimensions[1] = 0.001;
+  collision_objects[2].primitives[0].dimensions[2] = 0.4;
   collision_objects[2].primitive_poses.resize(1);
-  collision_objects[2].primitive_poses[0].position.x = 0.5;
-  collision_objects[2].primitive_poses[0].position.y = 0;
-  collision_objects[2].primitive_poses[0].position.z = 0.5;
+  collision_objects[2].primitive_poses[0].position.x = 1.2160;
+  collision_objects[2].primitive_poses[0].position.y = 0.3785580-0.7617;
+  collision_objects[2].primitive_poses[0].position.z = 0.259062 + 0.2;
   collision_objects[2].primitive_poses[0].orientation.w = 1.0;
-  // END_SUB_TUTORIAL
   collision_objects[2].operation = collision_objects[2].ADD;
+
+  collision_objects[3].id = "table4";
+  collision_objects[3].header.frame_id = "base_link";
+  collision_objects[3].primitives.resize(1);
+  collision_objects[3].primitives[0].type = collision_objects[1].primitives[0].BOX;
+  collision_objects[3].primitives[0].dimensions.resize(3);
+  collision_objects[3].primitives[0].dimensions[0] = 0.001;
+  collision_objects[3].primitives[0].dimensions[1] = 0.7617;
+  collision_objects[3].primitives[0].dimensions[2] = 0.4;
+  collision_objects[3].primitive_poses.resize(1);
+  collision_objects[3].primitive_poses[0].position.x = 0.928868;
+  collision_objects[3].primitive_poses[0].position.y = -0.016620;
+  collision_objects[3].primitive_poses[0].position.z = 0.259062 + 0.2;
+  collision_objects[3].primitive_poses[0].orientation.w = 1.0;
+  collision_objects[3].operation = collision_objects[3].ADD;
+
   planning_scene_interface.applyCollisionObjects(collision_objects);
 }
 int main(int argc, char** argv)
@@ -355,10 +350,11 @@ int main(int argc, char** argv)
   moveit::planning_interface::MoveGroupInterface group("hg_arm");
   moveit::planning_interface::MoveGroupInterface grippergroup("gripper");
   group.allowReplanning(true);
-  group.setGoalPositionTolerance(0.001); 
-  group.setGoalOrientationTolerance(0.001);
+  group.setGoalPositionTolerance(0.01); 
+  //group.setGoalOrientationTolerance(0.001);
   group.setMaxAccelerationScalingFactor(0.9);
   group.setMaxVelocityScalingFactor(0.9);
+  addCollisionObjects(planning_scene_interface);
   tf::TransformListener listener(ros::Duration(10));
   float px,py,pz;
   geometry_msgs::Pose targetRPY;
