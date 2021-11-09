@@ -1,0 +1,8 @@
+prefix=/home/slishy/catkin_ws/src/build/devel
+
+Name: learning_tf
+Description: Description of learning_tf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

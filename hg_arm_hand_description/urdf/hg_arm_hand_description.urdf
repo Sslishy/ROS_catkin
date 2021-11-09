@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="hg_arm_hand_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0980500358272937 -0.00232771681565317 0.111852076506816"
+        rpy="0 0 0" />
+      <mass
+        value="46.5873146529749" />
+      <inertia
+        ixx="0.661474745111325"
+        ixy="0.0153527675183583"
+        ixz="0.089604953466729"
+        iyy="1.33815915829418"
+        iyz="0.000457536691791632"
+        izz="1.80453325697265" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="0.124489041830363 -0.039358174366685 0.118219762696502"
+        rpy="0 0 0" />
+      <mass
+        value="33.6330721032146" />
+      <inertia
+        ixx="0.468945917191168"
+        ixy="-0.0589086007459388"
+        ixz="-0.222059127182104"
+        iyy="0.888555909380166"
+        iyz="-0.0161423969222272"
+        izz="0.843325415823868" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.28"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="-0.00191502415367473 -0.0672730286474409 0.372447137291563"
+        rpy="0 0 0" />
+      <mass
+        value="34.2613834304154" />
+      <inertia
+        ixx="1.73347595247948"
+        ixy="-0.000101095446454487"
+        ixz="0.00095886072769276"
+        iyy="1.86610585301145"
+        iyz="0.0321183884522106"
+        izz="0.208398466721327" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0.32 0.1 0.2"
+      rpy="0 0 3.1416" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="-0.183102672704757 0.0179818743476689 0.119362800384374"
+        rpy="0 0 0" />
+      <mass
+        value="32.9263890108208" />
+      <inertia
+        ixx="0.308931114883643"
+        ixy="0.0224354465402208"
+        ixz="0.0556277116487763"
+        iyy="0.601143194786335"
+        iyz="-0.0026357431191842"
+        izz="0.4899154837244" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.084 0.87"
+      rpy="0 0 0" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="0.0251416371906674 -2.64594692822584E-08 -0.00119929727767354"
+        rpy="0 0 0" />
+      <mass
+        value="3.31772253710851" />
+      <inertia
+        ixx="0.00871539895331899"
+        ixy="4.72234769697784E-09"
+        ixz="0.000405286761999623"
+        iyy="0.0128061237486537"
+        iyz="-3.39763923047263E-09"
+        izz="0.0127319094954166" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="-0.86 0.016 0.2"
+      rpy="-1.5708 0 3.1416" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link5">
+    <inertial>
+      <origin
+        xyz="0.0761284567626129 -0.0236687427949569 0.0192511620493185"
+        rpy="0 0 0" />
+      <mass
+        value="3.21802266833736" />
+      <inertia
+        ixx="0.0115685195832536"
+        ixy="-0.000566862871540123"
+        ixz="0.000478618021045719"
+        iyy="0.010525417907517"
+        iyz="0.00142169346768481"
+        izz="0.0110683735994668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0.17 0 -0.087"
+      rpy="-2.26689 -1.5708 0" />
+    <parent
+      link="Link4" />
+    <child
+      link="Link5" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Link6">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-15 -3.10862446895044E-15 -0.057074120012946"
+        rpy="0 0 0" />
+      <mass
+        value="1.03809496696182" />
+      <inertia
+        ixx="0.00165602822384768"
+        ixy="1.62630325872826E-19"
+        ixz="2.71050543121376E-20"
+        iyy="0.00165602822384769"
+        iyz="4.33680868994202E-19"
+        izz="0.00254659409207581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/Link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0.091 -0.15998 0.12818"
+      rpy="-0.83315 -0.37721 2.8186" />
+    <parent
+      link="Link5" />
+    <child
+      link="Link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="0.00299999999997813 0.00015000000001808 -0.193224198175116"
+        rpy="0 0 0" />
+      <mass
+        value="0.843628368630204" />
+      <inertia
+        ixx="0.00120327643820655"
+        ixy="4.86329604486175E-06"
+        ixz="-3.25260651745651E-19"
+        iyy="0.00119756103253225"
+        iyz="2.43945488809238E-19"
+        izz="0.00234473867823283" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper"
+    type="fixed">
+    <origin
+      xyz="-0.0028192 0.0010368 0.183"
+      rpy="0 0 -0.40236" />
+    <parent
+      link="Link6" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="finger1">
+    <inertial>
+      <origin
+        xyz="0.0147482184599466 5.6399329650958E-13 0.00339964519313074"
+        rpy="0 0 0" />
+      <mass
+        value="0.0939852211385388" />
+      <inertia
+        ixx="4.71759270450362E-05"
+        ixy="3.11479425693824E-16"
+        ixz="-3.13603141563657E-06"
+        iyy="4.59210349411821E-05"
+        iyz="-2.6707435606175E-15"
+        izz="4.2852974642729E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/finger1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/finger1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger1"
+    type="prismatic">
+    <origin
+      xyz="0.0248 0 -0.044"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="gripper" />
+    <child
+      link="finger1" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.04"
+      effort="20"
+      velocity="1" />
+  </joint>
+  <link
+    name="finger2">
+    <inertial>
+      <origin
+        xyz="-0.0147482184610841 -1.04005692946885E-12 0.00339964518730929"
+        rpy="0 0 0" />
+      <mass
+        value="0.0939852211215284" />
+      <inertia
+        ixx="4.71759270264421E-05"
+        ixy="5.53497067515112E-16"
+        ixz="3.13603141845719E-06"
+        iyy="4.59210349238607E-05"
+        iyz="4.76661544199372E-15"
+        izz="4.28529746603542E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/finger2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_arm_hand_description/meshes/finger2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="finger2"
+    type="prismatic">
+    <origin
+      xyz="-0.019 0 -0.044"
+      rpy="0 0 3.1416" />
+    <parent
+      link="gripper" />
+    <child
+      link="finger2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.04"
+      effort="20"
+      velocity="1" />
+  </joint>
+</robot>

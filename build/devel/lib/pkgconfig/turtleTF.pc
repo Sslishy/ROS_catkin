@@ -1,0 +1,8 @@
+prefix=/home/slishy/catkin_ws/src/build/devel
+
+Name: turtleTF
+Description: Description of turtleTF
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

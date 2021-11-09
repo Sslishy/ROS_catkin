@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_setup_tf\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/bullet -I/usr/include/OGRE -I/usr/include/pcl-1.10 -isystem /usr/include/opencv4 -g -o CMakeFiles/tf_broadcaster.dir/src/tf_broadcaster.cpp.o -c /home/slishy/catkin_ws/src/robot_setup_tf/src/tf_broadcaster.cpp",
+  "file": "/home/slishy/catkin_ws/src/robot_setup_tf/src/tf_broadcaster.cpp"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_setup_tf\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/bullet -I/usr/include/OGRE -I/usr/include/pcl-1.10 -isystem /usr/include/opencv4 -g -o CMakeFiles/sub.dir/src/sub.cpp.o -c /home/slishy/catkin_ws/src/robot_setup_tf/src/sub.cpp",
+  "file": "/home/slishy/catkin_ws/src/robot_setup_tf/src/sub.cpp"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_setup_tf\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/bullet -I/usr/include/OGRE -I/usr/include/pcl-1.10 -isystem /usr/include/opencv4 -g -o CMakeFiles/tf_listener.dir/src/tf_listener.cpp.o -c /home/slishy/catkin_ws/src/robot_setup_tf/src/tf_listener.cpp",
+  "file": "/home/slishy/catkin_ws/src/robot_setup_tf/src/tf_listener.cpp"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_setup_tf\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/bullet -I/usr/include/OGRE -I/usr/include/pcl-1.10 -isystem /usr/include/opencv4 -g -o CMakeFiles/pub.dir/src/pub.cpp.o -c /home/slishy/catkin_ws/src/robot_setup_tf/src/pub.cpp",
+  "file": "/home/slishy/catkin_ws/src/robot_setup_tf/src/pub.cpp"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build/gtest/googlemock",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/usr/include/opencv4 -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest -g -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/googletest/googlemock/src/gmock-all.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build/gtest/googlemock",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/usr/include/opencv4 -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest -g -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /usr/src/googletest/googlemock/src/gmock_main.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build/gtest/googletest",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/usr/include/opencv4 -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest -g -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/googletest/googletest/src/gtest-all.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/slishy/catkin_ws/src/robot_setup_tf/build/gtest/googletest",
+  "command": "/bin/c++ -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/usr/local/include/pcl-1.11 -I/usr/include/eigen3 -I/usr/include/ni -I/usr/include/openni2 -I/usr/include/opencv4 -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest -g -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest_main.cc"
+}
+]

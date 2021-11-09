@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: turtleTF
+Description: Description of turtleTF
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

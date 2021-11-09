@@ -1,0 +1,60 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_ef2ca/fast && /usr/bin/make  -f CMakeFiles/cmTC_ef2ca.dir/build.make CMakeFiles/cmTC_ef2ca.dir/build
+make[1]: 进入目录“/home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ef2ca.dir/src.c.o
+/bin/x86_64-linux-gnu-gcc-9 -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_ef2ca.dir/src.c.o -c /home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ef2ca
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef2ca.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9 -rdynamic CMakeFiles/cmTC_ef2ca.dir/src.c.o -o cmTC_ef2ca 
+/usr/bin/ld: CMakeFiles/cmTC_ef2ca.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_ef2ca.dir/build.make:99：cmTC_ef2ca] 错误 1
+make[1]: 离开目录“/home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:127：cmTC_ef2ca/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_f786f/fast && /usr/bin/make  -f CMakeFiles/cmTC_f786f.dir/build.make CMakeFiles/cmTC_f786f.dir/build
+make[1]: 进入目录“/home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f786f.dir/CheckFunctionExists.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_f786f.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.21/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f786f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f786f.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_f786f.dir/CheckFunctionExists.c.o -o cmTC_f786f  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f786f.dir/build.make:99：cmTC_f786f] 错误 1
+make[1]: 离开目录“/home/slishy/catkin_ws/src/moveit_test/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:127：cmTC_f786f/fast] 错误 2
+
+
+

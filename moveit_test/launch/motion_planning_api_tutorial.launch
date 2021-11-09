@@ -1,0 +1,5 @@
+<launch>
+  <node name="testCartesianPath" pkg="testCartesianPath" type="testCartesianPath" respawn="false" output="screen">
+  </node>
+
+</launch>

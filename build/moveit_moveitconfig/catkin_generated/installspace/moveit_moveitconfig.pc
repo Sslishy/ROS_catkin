@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: moveit_moveitconfig
+Description: Description of moveit_moveitconfig
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

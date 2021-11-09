@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/slishy/catkin_ws/src/robot_setup_tf/build/devel/setup.sh
