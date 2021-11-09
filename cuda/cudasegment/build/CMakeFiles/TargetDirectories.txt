@@ -1,3 +1,0 @@
-/home/slishy/Code/cuda/cudasegment/build/CMakeFiles/rebuild_cache.dir
-/home/slishy/Code/cuda/cudasegment/build/CMakeFiles/edit_cache.dir
-/home/slishy/Code/cuda/cudasegment/build/CMakeFiles/main.dir
