@@ -3,5 +3,5 @@
   <xacro:include filename="$(find hg_description)/urdf/hg_arc_macro.xacro" />
   <xacro:include filename="$(find hg_description)/urdf/hand_arc_macro.xacro" />
   <xacro:hg_description/>
-  <xacro:hand ns="hg" rpy="0 0 0" xyz="0 0 0.254" connected_to="hg_Link6"/>
+  <xacro:hand ns="hg" rpy="0 0 0" xyz="0 0 0" connected_to="hg_Link6"/>
 </robot>
