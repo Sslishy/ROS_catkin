@@ -10,6 +10,5 @@
 export CMAKE_PREFIX_PATH="/home/slishy/catkin_ws/src/robot_setup_tf/build/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/slishy/catkin_ws/src/robot_setup_tf/build/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/slishy/catkin_ws/src/robot_setup_tf/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/slishy/catkin_ws/src/moveit_test'
-export ROSLISP_PACKAGE_DIRECTORIES='/home/slishy/catkin_ws/src/robot_setup_tf/build/devel/share/common-lisp'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/slishy/catkin_ws/src/robot_setup_tf/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/slishy/catkin_ws/src/robot_setup_tf:$ROS_PACKAGE_PATH"

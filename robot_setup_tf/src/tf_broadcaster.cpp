@@ -52,7 +52,7 @@
        while(n.ok()&& sec++ < 5){
         transform.setOrigin( tf::Vector3(x, y, z));
         transform.setRotation(tf::Quaternion(target_pose1.orientation.x,target_pose1.orientation.y,target_pose1.orientation.z ,target_pose1.orientation.w));
-        broadcaster.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "base_link", "PickPoint"));
+        broadcaster.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "hg_base_link", "PickPoint"));
         r.sleep();
        }
        while (chatter_pub.getNumSubscribers() == 0) {
@@ -71,6 +71,10 @@
         if(msg == 3)
         {
           ss << "ComputePathlock";
+        }
+         if(msg == 4)
+        {
+          ss << "testTF";
         }
         sendmsg.data = ss.str();
         cout << ss.str() <<endl;

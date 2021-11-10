@@ -28,16 +28,16 @@ bool listenTF(const tf::TransformListener& listener,float &px,float& py ,float& 
   //we'll just use the most recent transform available for our simple example
   pickpoint.header.stamp = ros::Time();
   //just an arbitrary point in space
-  pickpoint.point.x = 0.00845;
-  pickpoint.point.y = -0.13597;
-  pickpoint.point.z = -0.281;
+  pickpoint.point.x = 0;
+  pickpoint.point.y = 0.10107;
+  pickpoint.point.z = -0.215;
   geometry_msgs::PointStamped prepickpoint;
   prepickpoint.header.frame_id = "PickPoint";
   //we'll just use the most recent transform available for our simple example
   prepickpoint.header.stamp = ros::Time();
   //just an arbitrary point in space
-  prepickpoint.point.x = 0.00845;
-  prepickpoint.point.y = -0.13597;
+  prepickpoint.point.x = 0;
+  prepickpoint.point.y = 0.10107;
   prepickpoint.point.z = -0.351;
   geometry_msgs::PoseStamped rpy;
   // change rpy 
@@ -46,7 +46,7 @@ bool listenTF(const tf::TransformListener& listener,float &px,float& py ,float& 
   rpy.pose.position.x = 0;
   rpy.pose.position.y = 0;
   rpy.pose.position.z = 0;
-  rpy.pose.orientation.w = -0.953714;
+  rpy.pose.orientation.w = 0.953714;
   rpy.pose.orientation.x = 0.300714;
   rpy.pose.orientation.y = 0;
   rpy.pose.orientation.z = 0;
@@ -54,9 +54,9 @@ bool listenTF(const tf::TransformListener& listener,float &px,float& py ,float& 
     geometry_msgs::PointStamped Link6_point;
     geometry_msgs::PointStamped preLink6_point;
     geometry_msgs::PoseStamped rpy1;
-    listener.transformPoint("base_link", pickpoint, Link6_point);
-    listener.transformPoint("base_link", prepickpoint, preLink6_point);
-   listener.transformPose("base_link", rpy, rpy1);
+    listener.transformPoint("hg_base_link", pickpoint, Link6_point);
+    listener.transformPoint("hg_base_link", prepickpoint, preLink6_point);
+   listener.transformPose("hg_base_link", rpy, rpy1);
    /* ROS_INFO("preLink6_point: (%.4f, %.4f. %.4f) -----> Link6_point: (%.4f, %.4f, %.4f)",
         preLink6_point.point.x, preLink6_point.point.y, preLink6_point.point.z,
         Link6_point.point.x, Link6_point.point.y, Link6_point.point.z);*/
@@ -81,15 +81,15 @@ bool listenTFlock(const tf::TransformListener& listener,float &px,float& py ,flo
   pickpoint.header.stamp = ros::Time();
   //just an arbitrary point in space
   pickpoint.point.x = 0;
-  pickpoint.point.y = 0;
-  pickpoint.point.z = -0.221;
+  pickpoint.point.y = 0.10107;
+  pickpoint.point.z = -0.215;
   geometry_msgs::PointStamped prepickpoint;
   prepickpoint.header.frame_id = "PickPoint";
   //we'll just use the most recent transform available for our simple example
   prepickpoint.header.stamp = ros::Time();
   //just an arbitrary point in space
   prepickpoint.point.x = 0;
-  prepickpoint.point.y = 0;
+  prepickpoint.point.y = 0.10107;
   prepickpoint.point.z = -0.351;
   geometry_msgs::PoseStamped rpy;
   // change rpy 
@@ -98,17 +98,17 @@ bool listenTFlock(const tf::TransformListener& listener,float &px,float& py ,flo
   rpy.pose.position.x = 0;
   rpy.pose.position.y = 0;
   rpy.pose.position.z = 0;
-   rpy.pose.orientation.w = 0.029898;
-  rpy.pose.orientation.x = -0.0948237;
-  rpy.pose.orientation.y = 0.948991;
-  rpy.pose.orientation.z = -0.299218;
+  rpy.pose.orientation.w = 0.953714;
+  rpy.pose.orientation.x = 0.300714;
+  rpy.pose.orientation.y = 0;
+  rpy.pose.orientation.z = 0;
   try{
     geometry_msgs::PointStamped Link6_point;
     geometry_msgs::PointStamped preLink6_point;
     geometry_msgs::PoseStamped rpy1;
-    listener.transformPoint("base_link", pickpoint, Link6_point);
-    listener.transformPoint("base_link", prepickpoint, preLink6_point);
-   listener.transformPose("base_link", rpy, rpy1);
+    listener.transformPoint("hg_base_link", pickpoint, Link6_point);
+    listener.transformPoint("hg_base_link", prepickpoint, preLink6_point);
+   listener.transformPose("hg_base_link", rpy, rpy1);
     /*ROS_INFO("preLink6_point: (%.4f, %.4f. %.4f) -----> Link6_point: (%.4f, %.4f, %.4f)",
         preLink6_point.point.x, preLink6_point.point.y, preLink6_point.point.z,
         Link6_point.point.x, Link6_point.point.y, Link6_point.point.z);*/
@@ -155,7 +155,7 @@ void addPointCloud(moveit::planning_interface::PlanningSceneInterface &PlanningS
   for (size_t i = 0; i < cloud->points.size(); i++)
   {
     collisionobjects[i].id = "box"+std::to_string(i);
-    collisionobjects[i].header.frame_id = "base_link";
+    collisionobjects[i].header.frame_id = "hg_base_link";
     collisionobjects[i].primitives.resize(1);
     collisionobjects[i].primitives[0].type = collisionobjects[i].primitives[0].BOX;
     collisionobjects[i].primitives[0].dimensions.resize(3);
@@ -263,13 +263,58 @@ target_pose1.orientation.y =1;
         return false;
     }
 }
+bool testTF(moveit::planning_interface::MoveGroupInterface& move_group,float px,float py ,float pz,float x,float y ,float z,geometry_msgs::Pose targetRPY )
+{
+  geometry_msgs::Pose target_pose1;
+  target_pose1.orientation = targetRPY.orientation;
+  vector<geometry_msgs::Pose> waypoints;
+  target_pose1.position.x = px;
+  target_pose1.position.y = py;
+  target_pose1.position.z = pz;
+  waypoints.push_back(target_pose1);
+  target_pose1.position.x = x;
+  target_pose1.position.y = y;
+  target_pose1.position.z = z;
+  waypoints.push_back(target_pose1);
+  moveit_msgs::RobotTrajectory trajectory;
+	const double jump_threshold = 0.0;
+	const double eef_step = 0.01;
+	double fraction = 0.0;
+    int maxtries = 100;   //最大尝试规划次数
+    int attempts = 0;     //已经尝试规划次数
+    while(fraction < 1.0 && attempts < maxtries)
+    {
+        fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+        attempts++;
+        
+        if(attempts % 10 == 0)
+            ROS_INFO("Still trying after %d attempts...", attempts);
+    }
+    if(fraction == 1)
+    {   
+        ROS_INFO("Path computed successfully. Moving the arm.");
+	    // 生成机械臂的运动规划数据
+	    moveit::planning_interface::MoveGroupInterface::Plan plan;
+	    plan.trajectory_ = trajectory;
+      
+	    // 执行运动
+	    move_group.execute(plan);
+      sleep(1);
+      return true;
+    }
+    else
+    {
+        ROS_INFO("Path planning failed with only %0.6f success after %d attempts.", fraction, maxtries);
+        return false;
+    }
+}
 void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& planning_scene_interface)
 {
   std::vector<moveit_msgs::CollisionObject> collision_objects;
   collision_objects.resize(4);
   // Add the first table where the cube will originally be kept.
   collision_objects[0].id = "table1";
-  collision_objects[0].header.frame_id = "base_link";
+  collision_objects[0].header.frame_id = "hg_base_link";
   collision_objects[0].primitives.resize(1);
   collision_objects[0].primitives[0].type = collision_objects[0].primitives[0].BOX;
   collision_objects[0].primitives[0].dimensions.resize(3);
@@ -285,7 +330,7 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
 
 
   collision_objects[1].id = "table2";
-  collision_objects[1].header.frame_id = "base_link";
+  collision_objects[1].header.frame_id = "hg_base_link";
   collision_objects[1].primitives.resize(1);
   collision_objects[1].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[1].primitives[0].dimensions.resize(3);
@@ -299,7 +344,7 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
   collision_objects[1].primitive_poses[0].orientation.w = 1.0;
   collision_objects[1].operation = collision_objects[1].ADD;
 
-  collision_objects[2].header.frame_id = "base_link";
+  collision_objects[2].header.frame_id = "hg_base_link";
   collision_objects[2].id = "table3";
   collision_objects[2].primitives.resize(1);
   collision_objects[2].primitives[0].type = collision_objects[1].primitives[0].BOX;
@@ -315,7 +360,7 @@ void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& pla
   collision_objects[2].operation = collision_objects[2].ADD;
 
   collision_objects[3].id = "table4";
-  collision_objects[3].header.frame_id = "base_link";
+  collision_objects[3].header.frame_id = "hg_base_link";
   collision_objects[3].primitives.resize(1);
   collision_objects[3].primitives[0].type = collision_objects[1].primitives[0].BOX;
   collision_objects[3].primitives[0].dimensions.resize(3);
@@ -380,6 +425,10 @@ int main(int argc, char** argv)
     listenTFlock(listener,px,py,pz,x,y,z,targetRPY);
      break;
    }
+   if (f == true && loadmsg == "testTF" )
+   {
+     break;
+   }
   }
   sleep.sleep();
    if (loadmsg == "AddPointCloud")
@@ -423,6 +472,12 @@ int main(int argc, char** argv)
       publisher.publish(sendmsg);
       loadmsg = "nan";
       }
+    }
+      if (loadmsg == "testTF")
+    {
+     closeGripper(grippergroup);
+      bool s = testTF(group,px,py,pz,x,y,z,targetRPY);
+      loadmsg = "nan";
     }
     if (loadmsg == "ComputePathlock")
     {
