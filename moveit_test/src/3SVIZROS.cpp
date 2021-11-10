@@ -66,6 +66,7 @@ bool listenTF(const tf::TransformListener& listener,float &px,float& py ,float& 
         targetRPY.orientation.x = rpy1.pose.orientation.x;
         targetRPY.orientation.y = rpy1.pose.orientation.y;
         targetRPY.orientation.z = rpy1.pose.orientation.z;
+        targetRPY.position = rpy1.pose.position;
         return true;
   }
   catch(tf::TransformException& ex){
@@ -231,15 +232,14 @@ target_pose1.orientation.w =0;
 target_pose1.orientation.y =1;
   waypoints.push_back(target_pose1);
  moveit_msgs::RobotTrajectory trajectory;
- 
 	const double jump_threshold = 0.0;
 	const double eef_step = 0.01;
 	double fraction = 0.0;
-    int maxtries = 100;   //最大尝试规划次数
+    int maxtries = 500;   //最大尝试规划次数
     int attempts = 0;     //已经尝试规划次数
     while(fraction < 1.0 && attempts < maxtries)
     {
-        fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+        fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory,true);
         attempts++;
         
         if(attempts % 10 == 0)
@@ -267,16 +267,32 @@ bool testTF(moveit::planning_interface::MoveGroupInterface& move_group,float px,
 {
   geometry_msgs::Pose target_pose1;
   target_pose1.orientation = targetRPY.orientation;
-  vector<geometry_msgs::Pose> waypoints;
+  /*vector<geometry_msgs::Pose> waypoints;
   target_pose1.position.x = px;
   target_pose1.position.y = py;
   target_pose1.position.z = pz;
-  waypoints.push_back(target_pose1);
+  waypoints.push_back(target_pose1);*/
+  move_group.allowReplanning(true);
+  move_group.setGoalPositionTolerance(0.001); 
+  move_group.setGoalOrientationTolerance(5);
   target_pose1.position.x = x;
   target_pose1.position.y = y;
   target_pose1.position.z = z;
-  waypoints.push_back(target_pose1);
-  moveit_msgs::RobotTrajectory trajectory;
+  cout << targetRPY.position <<endl;
+  cout << targetRPY.orientation <<endl;
+   move_group.setPoseTarget(targetRPY,"gripper");
+   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+   bool success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+  if (success == true)
+  {
+    move_group.execute(my_plan);
+  }
+  else{
+    std::cout << "pretarget planning fail"<<std::endl;
+  }
+
+  //waypoints.push_back(target_pose1);
+  /*moveit_msgs::RobotTrajectory trajectory;
 	const double jump_threshold = 0.0;
 	const double eef_step = 0.01;
 	double fraction = 0.0;
@@ -306,8 +322,9 @@ bool testTF(moveit::planning_interface::MoveGroupInterface& move_group,float px,
     {
         ROS_INFO("Path planning failed with only %0.6f success after %d attempts.", fraction, maxtries);
         return false;
-    }
+    }*/
 }
+
 void addCollisionObjects(moveit::planning_interface::PlanningSceneInterface& planning_scene_interface)
 {
   std::vector<moveit_msgs::CollisionObject> collision_objects;
@@ -394,9 +411,7 @@ int main(int argc, char** argv)
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
   moveit::planning_interface::MoveGroupInterface group("hg_arm");
   moveit::planning_interface::MoveGroupInterface grippergroup("gripper");
-  group.allowReplanning(true);
-  group.setGoalPositionTolerance(0.01); 
-  //group.setGoalOrientationTolerance(0.001);
+
   group.setMaxAccelerationScalingFactor(0.9);
   group.setMaxVelocityScalingFactor(0.9);
   addCollisionObjects(planning_scene_interface);
