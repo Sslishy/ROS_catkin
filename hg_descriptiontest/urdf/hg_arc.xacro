@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="hg_description" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename="$(find hg_descriptiontest)/urdf/hg_arc_macro.xacro" />
+  <xacro:include filename="$(find hg_descriptiontest)/urdf/hand_arc_macro.xacro" />
+  <xacro:hg_description description_pkg="hg_descriptiontest"/>
+  <xacro:hand ns="hg" rpy="0 0 0" xyz="0 0 0" connected_to="hg_Link6" description_pkg="hg_descriptiontest"/>
+</robot>

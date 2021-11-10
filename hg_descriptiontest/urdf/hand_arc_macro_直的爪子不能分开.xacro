@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="hand" params="connected_to:='' ns:='' rpy:='0 0 0' xyz:='0 0 0'">
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="${ns}_hand_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="gripper"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+      </joint>
+    </xacro:unless> 
+    <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="0.000134132337600512 -7.45179653338646E-06 -0.196565990205525"
+        rpy="0 0 0" />
+      <mass
+        value="1.13211406786698" />
+      <inertia
+        ixx="0.001600531432102"
+        ixy="-2.7404650794788E-06"
+        ixz="-4.64510576430146E-20"
+        iyy="0.00159244826447654"
+        iyz="4.63504703167973E-19"
+        izz="0.00236472692303731" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_description/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hg_description/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+ </xacro:macro>  
+</robot>
