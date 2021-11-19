@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: hg_description
+    relative_path: urdf/hg_arc.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/hg_description.srdf
+  CONFIG:
+    author_name: slishy
+    author_email: slishy@163.com
+    generated_timestamp: 1636510126

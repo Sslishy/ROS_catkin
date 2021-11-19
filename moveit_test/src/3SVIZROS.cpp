@@ -130,21 +130,21 @@ void addPointCloud(moveit::planning_interface::PlanningSceneInterface &PlanningS
 {
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
   pcl::io::loadPCDFile("/home/slishy/Code/PCD/anchuan/test.pcd",*cloud);
-  /*for (size_t i = 0; i < cloud->points.size(); i++)
+  for (size_t i = 0; i < cloud->points.size(); i++)
   {
     cloud->points[i].x =  cloud->points[i].x *0.001;
     cloud->points[i].y =  cloud->points[i].y *0.001;
     cloud->points[i].z =  cloud->points[i].z *0.001;
   }
-  pcl::io::savePCDFile("/home/slishy/Code/PCD/anchuan/test.pcd",*cloud);*/
-  pcl::PassThrough<pcl::PointXYZ> pass;
-  pass.setInputCloud(cloud);         
-  pass.setFilterFieldName("z");      
-  pass.setFilterLimits(0.27,0.5);    
-  pass.filter(*cloud); 
+  //pcl::io::savePCDFile("/home/slishy/Code/PCD/anchuan/test.pcd",*cloud);
+  //pcl::PassThrough<pcl::PointXYZ> pass;
+  //pass.setInputCloud(cloud);         
+  //pass.setFilterFieldName("z");      
+  //pass.setFilterLimits(0.27,0.5);    
+  //pass.filter(*cloud); 
   pcl::VoxelGrid<pcl::PointXYZ> sor;
   sor.setInputCloud(cloud);
-  sor.setLeafSize(0.015,0.015,0.015);
+  sor.setLeafSize(0.005,0.005,0.005);
   sor.filter(*cloud);
   pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor1;
   sor1.setInputCloud(cloud);
@@ -274,7 +274,7 @@ bool testTF(moveit::planning_interface::MoveGroupInterface& move_group,float px,
   waypoints.push_back(target_pose1);*/
   move_group.allowReplanning(true);
   move_group.setGoalPositionTolerance(0.001); 
-  move_group.setGoalOrientationTolerance(5);
+  move_group.setGoalOrientationTolerance(0.001);
   target_pose1.position.x = x;
   target_pose1.position.y = y;
   target_pose1.position.z = z;

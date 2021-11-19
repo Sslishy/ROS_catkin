@@ -24,9 +24,9 @@
       msg_ = argv[7];
       float msg = std::atof(msg_.c_str());
       computeangle ca;
-      Eigen::Matrix4f tansformition,tansformition2;
+      Eigen::Matrix3f tansformition,tansformition2;
       Eigen::Vector3f RPY{rx,ry,rz};
-      Eigen::Vector3f RPY2{180,0,180};
+      Eigen::Vector3f RPY2{0,0,0};
       tansformition = ca.eulerAnglesToRotationMatrix(RPY);
       tansformition2 =ca.eulerAnglesToRotationMatrix(RPY2);
       tansformition = tansformition * tansformition2;
